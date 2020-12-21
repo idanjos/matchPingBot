@@ -4,7 +4,7 @@ class Guild():
 		self.channels = ["matchmaking"]
 		self.commands = ["!MatchPing"]
 		self.messages = ['until you can match ping again!']
-		self.roles = ["Match Ping"]
+		self.roles = []
 		self.delay = 15
 		self.lastReq = 0
 		self.debug = False
