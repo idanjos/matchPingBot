@@ -34,8 +34,8 @@ async def on_message(ctx):
 	guild = ctx.guild.name
 	if ctx.author == client.user:
 		return
-	if True:
-	#if  ctx.author.guild_permissions.administrator:
+	#if True:
+	if  ctx.author.guild_permissions.administrator:
 		if HELP == ctx.content:
 			if ctx.guild.name not in database.keys():
 				await ctx.channel.send(f'{INIT_ERROR}')

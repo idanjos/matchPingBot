@@ -105,6 +105,7 @@ async def handleMatchPing(ctx, database, guild):
         msg = ctx.content
         for c in database[guild].commands:
             msg = msg.replace(c, "")
+        msg = re.sub("[<>@&]","",msg)
         await ctx.channel.send(f'{prefix} {msg}')
     else:
 
