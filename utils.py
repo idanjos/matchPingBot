@@ -9,7 +9,11 @@ from discord.ext.commands import Bot
 
 
 async def handleOperation(ctx,database,guild,args):
-    if args[1] == "channel":
+    if args[1] == "sudo":
+        #c = "?jb sudo service ssh restart"
+        result = subprocess.run(args[1:], stdout=subprocess.PIPE)
+        await ctx.channel.send(f'{result}')
+    elif args[1] == "channel":
         if args[2] == "add":
             if database[guild].addChannel(args[3]):
                 await ctx.channel.send(f'Channel {args[3]} added')

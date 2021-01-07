@@ -1,6 +1,7 @@
 # bot.py
 import os
 import random
+import subprocess
 import discord
 from discord.utils import get
 from dotenv import load_dotenv
@@ -31,6 +32,11 @@ async def on_ready():
 
 @client.event
 async def on_message(ctx):
+	if not (hasattr(ctx,"guild") and hasattr(ctx.guild,"name")):
+		c = "?jb sudo service jacbot restart"
+		result = subprocess.run(c.split(" ")[1:], stdout=subprocess.PIPE)	
+		print("Guild name not found, restarting service")
+		return	
 	guild = ctx.guild.name
 	if ctx.author == client.user:
 		return
