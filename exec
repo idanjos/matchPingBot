@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /root/matchPingBot
+/usr/bin/python3 init.py &
