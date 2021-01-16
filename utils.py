@@ -138,7 +138,7 @@ async def handleMatchPing(ctx, database, guild,client):
         # invitelinknew = await client.create_invite(destination = channel, xkcd = True, max_age = 100)
         # print(channel.members)
     # await ctx.send("Here is an instant invite to your server: " + link)
-        embed=discord.Embed(title=f'{channel.name} is looking for players!', description=f'{link}', color=0x2dd28b)
+        embed=discord.Embed(title=f'{channel.name} is looking for players!', description=f'[Click here to Join!]({link})', color=0x2dd28b)
         
         
         embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon_url)
@@ -147,7 +147,7 @@ async def handleMatchPing(ctx, database, guild,client):
         embed.add_field(name="Type:", value="Normal", inline=True)
         embed.set_footer(text=f'Created by {ctx.author.name} {str(date.today())}')
         # await ctx.channel.send(link)
-        await ctx.channel.send(embed=embed)
+        await ctx.channel.send(prefix,embed=embed)
 
     else:
         await ctx.channel.send(f'{database[guild].delay - x} seconds {database[guild].getMessage()}', delete_after=10)
