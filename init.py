@@ -84,7 +84,7 @@ async def on_message(ctx):
 		return
 
 	
-	await utils.handleMessage(ctx,database,guild)
+	await utils.handleMessage(ctx,database,guild,client)
 
 	
 client.run(TOKEN)
