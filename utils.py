@@ -145,8 +145,8 @@ async def handleMatchPing(ctx, database, guild,client):
         embed.set_thumbnail(url=random.choice(images))
         embed.add_field(name="Current size:", value=f'{n_members}/{channel.user_limit}', inline=True)
         embed.add_field(name="Type:", value="Normal", inline=True)
-        # embed.set_footer(text=f'Created by {ctx.author.name} {str(date.today())}')
-        embed.set_footer(text=f'Dont forget to wish Jac Happy Birthday! 01/17!')
+        embed.set_footer(text=f'Created by {ctx.author.name} {str(date.today())}')
+        
         # await ctx.channel.send(link)
         await ctx.channel.send(prefix,embed=embed)
 
