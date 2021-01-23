@@ -32,18 +32,18 @@ async def on_ready():
 
 @client.event
 async def on_message(ctx):
-	if not (hasattr(ctx,"guild") and hasattr(ctx.guild,"name")):
+	if not (hasattr(ctx,"guild") and hasattr(ctx.guild,"id")):
 		c = "?jb sudo service jacbot restart"
 		result = subprocess.run(c.split(" ")[1:], stdout=subprocess.PIPE)	
 		print("Guild name not found, restarting service")
 		return	
-	guild = ctx.guild.name
+	guild = ctx.guild.id
 	if ctx.author == client.user:
 		return
-	#if True:
-	if  ctx.author.guild_permissions.administrator:
+	if True:
+	#if  ctx.author.guild_permissions.administrator:
 		if HELP == ctx.content:
-			if ctx.guild.name not in database.keys():
+			if guild not in database.keys():
 				await ctx.channel.send(f'{INIT_ERROR}')
 				return
 			await ctx.channel.send(f'Try ?jb help')
@@ -54,17 +54,17 @@ async def on_message(ctx):
 			print(args)
 
 			if "init" == args[1]:
-				if ctx.guild.name in database.keys():
+				if guild in database.keys():
 					await ctx.channel.send(f'{client.user.name} reset!')
 					
 				guild = Guild()
-				database[ctx.guild.name] = guild
+				database[guild] = guild
 				await ctx.channel.send(f'Thank you for trying {client.user.name}, use the "?jb help" to add command, channels, messages and delay.')
 				return
 
 
 
-			if ctx.guild.name not in database.keys():
+			if guild not in database.keys():
 				await ctx.channel.send(f'{INIT_ERROR}')
 				return
 

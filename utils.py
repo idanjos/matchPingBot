@@ -123,9 +123,9 @@ async def handleMatchPing(ctx, database, guild,client):
         prefix += moderator.mention+" "
 
     x = time.mktime(datetime.datetime.now().timetuple()) - \
-        database[ctx.guild.name].lastReq
-    if x > database[ctx.guild.name].delay:
-        database[ctx.guild.name].lastReq = time.mktime(
+        database[guild].lastReq
+    if x > database[guild].delay:
+        database[guild].lastReq = time.mktime(
             datetime.datetime.now().timetuple())
         
         # await ctx.channel.send(f'{prefix} Please visit something for information on the current list information!')
