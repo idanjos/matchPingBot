@@ -44,7 +44,7 @@ async def on_message(ctx):
 	#if  ctx.author.guild_permissions.administrator:
 		if HELP == ctx.content:
 			if guild not in database.keys():
-				await ctx.channel.send(f'{INIT_ERROR}')
+				await ctx.channel.send(f'{INIT_ERROR} {guild}')
 				return
 			await ctx.channel.send(f'Try ?jb help')
 			return
