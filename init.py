@@ -13,7 +13,7 @@ import utils
 from entity import Guild
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-
+JAC_ID = os.getenv('JAC')
 PREFIX = r"\?jb[ ]"
 HELP = "?jb"
 INIT_ERROR = 'It appears I am not properly set, try ?jb init'
@@ -38,11 +38,14 @@ async def on_message(ctx):
 		print("Guild name not found, restarting service")
 		return	
 	#guild = str(ctx.guild.name)
-	guild = ctx.guild.name
+	
+	guild = ctx.guild.id
 	if ctx.author == client.user:
 		return
 	#if True:
-	if  ctx.author.guild_permissions.administrator:
+	#print(ctx.author.id)
+	#if ctx.author.id == int(JAC_ID):
+	if ctx.author.guild_permissions.administrator or ctx.author.id ==  int(JAC_ID):
 		if HELP == ctx.content:
 			if guild not in database.keys():
 				await ctx.channel.send(f'{INIT_ERROR} {guild}')
