@@ -58,8 +58,8 @@ async def on_message(ctx):
 				if guild in database.keys():
 					await ctx.channel.send(f'{client.user.name} reset!')
 					
-				guild = Guild()
-				database[guild] = guild
+				guildData = Guild()
+				database[guild] = guildData
 				await ctx.channel.send(f'Thank you for trying {client.user.name}, use the "?jb help" to add command, channels, messages and delay.')
 				return
 
