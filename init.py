@@ -13,7 +13,7 @@ import utils
 from entity import Guild
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-GUILD = os.getenv('DISCORD_GUILD')
+
 PREFIX = r"\?jb[ ]"
 HELP = "?jb"
 INIT_ERROR = 'It appears I am not properly set, try ?jb init'
