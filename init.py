@@ -37,7 +37,8 @@ async def on_message(ctx):
 		result = subprocess.run(c.split(" ")[1:], stdout=subprocess.PIPE)	
 		print("Guild name not found, restarting service")
 		return	
-	guild = str(ctx.guild.name)
+	#guild = str(ctx.guild.name)
+	guild = ctx.guild.name
 	if ctx.author == client.user:
 		return
 	if True:
